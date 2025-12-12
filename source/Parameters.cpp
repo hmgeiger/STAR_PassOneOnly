@@ -793,7 +793,7 @@ void Parameters::inputParameters (int argInN, char* argIn[]) {//input parameters
             exitWithError(errOut.str(),std::cerr, inOut->logMain, EXIT_CODE_PARAMETER, *this);
         };
 
-        if (twoPass.mode!="Basic") {
+        if (twoPass.mode!="Basic" && twoPass.mode!="PassOneOnly") {
             ostringstream errOut;
             errOut << "EXITING because of fatal PARAMETERS error: unrecognized value of --twopassMode="<<twoPass.mode<<"\n";
             errOut << "SOLUTION: for the 2-pass mode, use allowed values --twopassMode: Basic";
