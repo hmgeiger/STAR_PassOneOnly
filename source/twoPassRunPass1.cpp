@@ -86,6 +86,11 @@ void twoPassRunPass1(Parameters &P, Genome &genomeMain, Transcriptome *transcrip
     ofstream logFinal1 ( (P.twoPass.dir + "/Log.final.out").c_str());
     g_statsAll.reportFinal(logFinal1);
 
+    if (P.twoPass.mode == "PassOneOnly")  {
+        P.closeReadsFiles();
+        return;
+    }
+
     P.twoPass.pass2=true;//starting the 2nd pass
     P.twoPass.pass1sjFile=P.twoPass.dir+"/SJ.out.tab";
 
